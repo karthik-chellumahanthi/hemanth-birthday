@@ -182,6 +182,24 @@
     // ANIMATED COUNTERS
     // ────────────────────────────────────────────
     function initCounters() {
+        // Dynamically calculate days and years so it increases automatically
+        const startDate = new Date('2012-10-06T00:00:00'); // 14 years ago from original date
+        const now = new Date();
+        const diffTime = Math.abs(now - startDate);
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        
+        // Calculate exact years difference
+        let diffYears = now.getFullYear() - startDate.getFullYear();
+        if (now.getMonth() < startDate.getMonth() || (now.getMonth() === startDate.getMonth() && now.getDate() < startDate.getDate())) {
+            diffYears--;
+        }
+
+        const yearsCard = document.getElementById('years-card');
+        const daysCard = document.getElementById('days-card');
+        
+        if (yearsCard) yearsCard.dataset.count = diffYears;
+        if (daysCard) daysCard.dataset.count = diffDays;
+
         const counterCards = document.querySelectorAll('.counter-card');
 
         const observer = new IntersectionObserver((entries) => {
