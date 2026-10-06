@@ -332,6 +332,132 @@ a {
     filter: drop-shadow(0 0 30px rgba(167, 139, 250, 0.3));
 }
 
+/* Pure CSS Hero Cake Component */
+.css-hero-cake {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    width: 0.85em;
+    height: 0.85em;
+    vertical-align: middle;
+    margin-left: 0.15em;
+    transform: translateY(-0.06em);
+    -webkit-text-fill-color: initial;
+    background-clip: border-box;
+    filter: drop-shadow(0 4px 18px rgba(236, 72, 153, 0.5));
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.css-hero-cake:hover {
+    transform: translateY(-0.12em) scale(1.1);
+}
+
+/* Candle & Flame */
+.css-hero-cake .cake-candle {
+    position: relative;
+    width: 0.08em;
+    height: 0.22em;
+    background: repeating-linear-gradient(45deg, #fbbf24, #fbbf24 3px, #ef4444 3px, #ef4444 6px);
+    border-radius: 0.03em 0.03em 0 0;
+    z-index: 3;
+}
+
+.css-hero-cake .cake-flame {
+    position: absolute;
+    top: -0.16em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.12em;
+    height: 0.18em;
+    background: radial-gradient(ellipse at 50% 80%, #ffffff 0%, #fde047 30%, #f97316 70%, rgba(239, 68, 68, 0) 100%);
+    border-radius: 50% 50% 20% 20%;
+    box-shadow: 0 0 10px #fde047, 0 0 20px #f97316;
+    animation: cakeFlameFlicker 1.2s infinite alternate ease-in-out;
+}
+
+@keyframes cakeFlameFlicker {
+    0% {
+        transform: translateX(-50%) scale(1) rotate(-3deg);
+        box-shadow: 0 0 8px #fde047, 0 0 16px #f97316;
+    }
+    50% {
+        transform: translateX(-50%) scale(1.15) rotate(3deg);
+        box-shadow: 0 0 12px #fde047, 0 0 24px #ef4444;
+    }
+    100% {
+        transform: translateX(-50%) scale(0.95) rotate(-1deg);
+        box-shadow: 0 0 6px #fde047, 0 0 14px #f97316;
+    }
+}
+
+/* Tiers */
+.css-hero-cake .cake-tier {
+    position: relative;
+    border-radius: 0.04em;
+}
+
+.css-hero-cake .tier-top {
+    width: 0.52em;
+    height: 0.18em;
+    background: linear-gradient(135deg, #ff75c3, #ffa647);
+    border-radius: 0.06em 0.06em 0 0;
+    z-index: 2;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+/* Dripping Frosting */
+.css-hero-cake .frosting-drips {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    pointer-events: none;
+}
+
+.css-hero-cake .frosting-drips span {
+    display: block;
+    width: 0.12em;
+    height: 0.12em;
+    background: #ffffff;
+    border-radius: 0 0 50% 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.css-hero-cake .tier-mid {
+    width: 0.68em;
+    height: 0.18em;
+    background: linear-gradient(135deg, #9b51e0, #7000ff);
+    margin-top: 0.02em;
+    z-index: 1;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.css-hero-cake .tier-base {
+    width: 0.82em;
+    height: 0.2em;
+    background: linear-gradient(135deg, #4158d0, #c850c0);
+    margin-top: 0.02em;
+    z-index: 0;
+    border-radius: 0.04em 0.04em 0.06em 0.06em;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+/* Plate */
+.css-hero-cake .cake-plate {
+    width: 0.92em;
+    height: 0.04em;
+    background: linear-gradient(90deg, rgba(255,255,255,0.4), #ffffff, rgba(255,255,255,0.4));
+    border-radius: 0.04em;
+    margin-top: 0.02em;
+    box-shadow: 0 4px 10px rgba(167, 139, 250, 0.6);
+}
+
 .hero-subtitle {
     font-size: clamp(1rem, 2vw, 1.2rem);
     color: var(--text-secondary);
@@ -902,14 +1028,7 @@ a {
     box-shadow: inset 0 5px 15px rgba(255, 255, 255, 0.2);
 }
 
-.cake-top::after {
-    content: '🎂';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.5rem;
-}
+
 
 .cake-middle {
     width: 250px;
